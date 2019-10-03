@@ -42,8 +42,8 @@ public class indexScript : MonoBehaviour
 
 
             note = Instantiate(GameObject.Find(noteName),
-                new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y, GameObject.Find("noteDispenser").transform.position.z + (Random.Range(0.0f, 0.9f) - 0.5f)),
-                Quaternion.identity) as GameObject;
+                            new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y, GameObject.Find("noteDispenser").transform.position.z + (Random.Range(0.0f, 0.9f) - 0.5f)),
+                               Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
             yield return new WaitForSeconds(1);
         }
     }

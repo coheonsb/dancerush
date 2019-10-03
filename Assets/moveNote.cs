@@ -28,7 +28,7 @@ public class moveNote : MonoBehaviour
         {
             GameObject.Find("applause").GetComponent<AudioSource>().Play();
 
-            Instantiate(GameObject.Find("test"),
+            Instantiate(GameObject.Find("leftparticle"),
                 new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
 
             Destroy(gameObject);
@@ -36,7 +36,7 @@ public class moveNote : MonoBehaviour
         if (col.tag == "rightFootObject" && isReady && GameObject.Find("rightFootObject").GetComponent<rightFootObjectScript>().stap)
         {
             GameObject.Find("applause").GetComponent<AudioSource>().Play();
-            Instantiate(GameObject.Find("test"),
+            Instantiate(GameObject.Find("rightparticle"),
                 new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
 
             Destroy(gameObject);
@@ -53,6 +53,6 @@ public class moveNote : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        transform.Translate(Vector3.back * speed * Time.deltaTime);
     }
 }
