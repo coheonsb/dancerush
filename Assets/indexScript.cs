@@ -28,7 +28,7 @@ public class indexScript : MonoBehaviour
         {
             GameObject note;
             Random rand = new Random();
-            int randNote = Random.Range(0, 2);
+            int randNote = Random.Range(0, 4);
             string noteName = "";
 
             switch (randNote) {
@@ -38,12 +38,26 @@ public class indexScript : MonoBehaviour
                 case 1:
                     noteName = "rightNote";
                     break;
+                case 2:
+                    noteName = "downNote";
+                    break;
+                case 3:
+                    noteName = "jumpNote";
+                    break;
             }
 
+            if (randNote == 2 || randNote == 3)
+            {
+                note = Instantiate(GameObject.Find(noteName),
+                   new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y, GameObject.Find("noteDispenser").transform.position.z),
+                      Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+            }
+            else {
+                note = Instantiate(GameObject.Find(noteName),
+                new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y, GameObject.Find("noteDispenser").transform.position.z + (Random.Range(0.0f, 0.9f) - 0.5f)),
+                   Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+            }
 
-            note = Instantiate(GameObject.Find(noteName),
-                            new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y, GameObject.Find("noteDispenser").transform.position.z + (Random.Range(0.0f, 0.9f) - 0.5f)),
-                               Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
             yield return new WaitForSeconds(1);
         }
     }

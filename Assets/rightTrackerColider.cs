@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class rightTrackerColider : MonoBehaviour
         {
             GameObject.Find("rightFootObject").GetComponent<MeshRenderer>().enabled = true;
             GameObject.Find("rightFootObject").GetComponent<rightFootObjectScript>().stap = true;
+            GameObject.Find("rightFootObject").GetComponent<rightFootObjectScript>().stapTime = DateNow();
+
         }
     }
 
@@ -43,5 +46,10 @@ public class rightTrackerColider : MonoBehaviour
     void Update()
     {
      
+    }
+
+    public static long DateNow()
+    {
+        return DateTimeOffset.Now.ToUnixTimeMilliseconds();
     }
 }

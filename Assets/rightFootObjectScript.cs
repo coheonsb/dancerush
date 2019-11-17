@@ -6,6 +6,7 @@ public class rightFootObjectScript : MonoBehaviour
 {
     // Start is called before the first frame update
     public bool stap = false;
+    public long stapTime;
     void Start()
     {
         

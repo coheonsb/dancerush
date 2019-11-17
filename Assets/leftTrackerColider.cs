@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class leftTrackerColider : MonoBehaviour
@@ -7,6 +9,7 @@ public class leftTrackerColider : MonoBehaviour
     public bool stap = false;
     bool supple = false;
     float zPosition = 0;
+
 
     void Start()
     {
@@ -20,6 +23,8 @@ public class leftTrackerColider : MonoBehaviour
         {
             GameObject.Find("leftFootObject").GetComponent<MeshRenderer>().enabled = true;
             GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stap = true;
+            GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stapTime = DateNow();
+            Debug.Log(GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stapTime);
         }
     }
 
@@ -46,5 +51,9 @@ public class leftTrackerColider : MonoBehaviour
    
             //GameObject.Find("erro").GetComponent<AudioSource>().Play();
 
+    }
+    public static long DateNow()
+    {
+        return DateTimeOffset.Now.ToUnixTimeMilliseconds();
     }
 }
