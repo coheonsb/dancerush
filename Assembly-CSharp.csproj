@@ -60,6 +60,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\defualtLongNote.cs" />
+    <Compile Include="Assets\defualtLongNoteCollider.cs" />
     <Compile Include="Assets\indexScript.cs" />
     <Compile Include="Assets\leftFootObjectScript.cs" />
     <Compile Include="Assets\leftTrackerColider.cs" />
@@ -77,6 +79,8 @@
     <Compile Include="Assets\Mystic Arsenal\Scripts\MysticRotation.cs" />
     <Compile Include="Assets\rightFootObjectScript.cs" />
     <Compile Include="Assets\rightTrackerColider.cs" />
+    <Compile Include="Assets\shuffleLongNote.cs" />
+    <Compile Include="Assets\shuffleLongNoteCollider.cs" />
     <None Include="Assets\Mystic Arsenal\Shaders\MysticRimLighting.shader" />
     <None Include="Assets\Mystic Arsenal\Shaders\MysticBumpParticle.shader" />
     <None Include="Assets\Mystic Arsenal\Mystic Arsenal - Readme.txt" />

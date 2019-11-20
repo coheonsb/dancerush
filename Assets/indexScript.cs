@@ -28,7 +28,7 @@ public class indexScript : MonoBehaviour
         {
             GameObject note;
             Random rand = new Random();
-            int randNote = Random.Range(0, 4);
+            int randNote = Random.Range(0, 6);
             string noteName = "";
 
             switch (randNote) {
@@ -44,17 +44,43 @@ public class indexScript : MonoBehaviour
                 case 3:
                     noteName = "jumpNote";
                     break;
+                case 4:
+                    noteName = "defualtLongNote";
+                    break;
+                case 5:
+                    noteName = "shuffleLongNote";
+                    break;
             }
-
+            randNote = 5;
+            noteName = "shuffleLongNote";
             if (randNote == 2 || randNote == 3)
             {
                 note = Instantiate(GameObject.Find(noteName),
                    new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y, GameObject.Find("noteDispenser").transform.position.z),
                       Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+            } else if (randNote == 4) {
+                note = Instantiate(GameObject.Find(noteName),
+                    new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y - (0.01f), GameObject.Find("noteDispenser").transform.position.z + (Random.Range(0.0f, 0.9f) - 0.5f)),
+                    Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
+                note.transform.localScale = new Vector3(Random.Range(1, 10), 1, 1);
+                if (Random.Range(0, 2) == 0)
+                {
+                    note.GetComponent<defualtLongNote>().isLast = true;
+                }
+                else {
+                    note.GetComponent<defualtLongNote>().isLast = false;
+                }
+            
+            }
+            else if (randNote == 5)
+            {
+                note = Instantiate(GameObject.Find(noteName),
+                    new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y - (0.01f), GameObject.Find("noteDispenser").transform.position.z + (Random.Range(0.0f, 0.9f) )),
+                    Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
             }
             else {
                 note = Instantiate(GameObject.Find(noteName),
-                new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y, GameObject.Find("noteDispenser").transform.position.z + (Random.Range(0.0f, 0.9f) - 0.5f)),
+                new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y + (0.05f), GameObject.Find("noteDispenser").transform.position.z + (Random.Range(0.0f, 0.9f) - 0.5f)),
                    Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
             }
 

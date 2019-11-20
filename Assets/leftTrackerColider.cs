@@ -24,7 +24,6 @@ public class leftTrackerColider : MonoBehaviour
             GameObject.Find("leftFootObject").GetComponent<MeshRenderer>().enabled = true;
             GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stap = true;
             GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stapTime = DateNow();
-            Debug.Log(GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stapTime);
         }
     }
 

@@ -21,14 +21,6 @@ public class moveNote : MonoBehaviour
         {
             isReady = true;
         }
-        if (col.tag == "leftFootObject" && isReady && GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stap)
-        {
-            Destroy(gameObject);
-        }
-        if (col.tag == "rightFootObject" && isReady && GameObject.Find("rightFootObject").GetComponent<rightFootObjectScript>().stap)
-        {
-            Destroy(gameObject);
-        }
     }
 
     void OnTriggerStay(Collider col)
