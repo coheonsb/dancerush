@@ -15,6 +15,7 @@ public class shuffleLongNoteCollider : MonoBehaviour
     float firsRightZ;
     void Start()
     {
+        Debug.Log("shuffleLongNoteCollider");
         isLeft = transform.parent.gameObject.GetComponent<shuffleLongNote>().isLeft;
     }
 

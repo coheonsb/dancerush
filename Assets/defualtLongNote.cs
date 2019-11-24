@@ -10,7 +10,7 @@ public class defualtLongNote : MonoBehaviour
     public bool isLast;
     void Start()
     {
-
+        Debug.Log("defualtLongNote");
     }
 
 

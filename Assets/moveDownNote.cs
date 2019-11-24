@@ -9,7 +9,7 @@ public class moveDownNote : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("moveDownNote");
     }
 
     bool isReady = false;

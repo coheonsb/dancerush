@@ -11,6 +11,7 @@ public class rightTrackerColider : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("rightTrackerColider");
         GameObject.Find("rightFootObject").GetComponent<MeshRenderer>().enabled = false;
         GameObject.Find("rightFootObject").GetComponent<rightFootObjectScript>().stap = false;
     }

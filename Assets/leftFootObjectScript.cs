@@ -10,7 +10,7 @@ public class leftFootObjectScript : MonoBehaviour
     public long stapTime;
     void Start()
     {
-        
+        Debug.Log("leftFootObjectScript");
     }
 
     // Update is called once per frame

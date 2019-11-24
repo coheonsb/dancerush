@@ -13,6 +13,7 @@ public class leftTrackerColider : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("leftTrackerColider");
         GameObject.Find("leftFootObject").GetComponent<MeshRenderer>().enabled = false;
         GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stap = false;
     }

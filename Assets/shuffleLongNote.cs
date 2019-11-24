@@ -10,6 +10,7 @@ public class shuffleLongNote : MonoBehaviour
     public bool isLeft = true;
     void Start()
     {
+        Debug.Log("shuffleLongNote");
         isLeft = true;
     }
 

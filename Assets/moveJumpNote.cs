@@ -8,7 +8,7 @@ public class moveJumpNote : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        Debug.Log("moveJumpNote");
     }
 
     bool isReady = false;

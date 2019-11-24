@@ -13,6 +13,7 @@ public class defualtLongNoteCollider : MonoBehaviour
     bool isLast;
     void Start()
     {
+        Debug.Log("defualtLongNoteCollider");
         isLast = transform.parent.gameObject.GetComponent<defualtLongNote>().isLast;
     }
 
