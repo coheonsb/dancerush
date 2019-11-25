@@ -40,9 +40,10 @@ public class moveDownNote : MonoBehaviour
         }
     }
 
+
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        this.transform.Translate(Vector3.left * speed * Time.deltaTime);
     }
 
     public static long DateNow()

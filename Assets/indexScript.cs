@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Valve.VR;
 
 public class indexScript : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class indexScript : MonoBehaviour
     void Start()
     {
 
+        SteamVR_Render.pauseRendering = false;
         Debug.Log("시작!");
         startTime = DateNow();
         StartCoroutine(Example());
@@ -126,6 +128,10 @@ public class indexScript : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale != 1) {
+          Time.timeScale = 1;
+        }
+
         makeNote();
     }
 
