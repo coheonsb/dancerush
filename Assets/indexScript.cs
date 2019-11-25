@@ -15,10 +15,11 @@ public class indexScript : MonoBehaviour
     {
         public int type;
         public long time;
-        public float potition;
-        public int size;
+        public float position;
+        public float size;
         public float rotation;
         public bool isLeft;
+        public bool isLast;
     };
     TextAsset textData;
 
@@ -47,7 +48,6 @@ public class indexScript : MonoBehaviour
 
         while (true)
         {
-            Debug.Log("카운트");
             yield return new WaitForSeconds(1);
         }
 
@@ -91,32 +91,33 @@ public class indexScript : MonoBehaviour
                 }
                 else if (randNote == 4)
                 {
+                    float position = noteArray.data[i].position - 0.5f;
+                    position = GameObject.Find("noteDispenser").transform.localScale.z * -position;
                     note = Instantiate(GameObject.Find(noteName),
-                        new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y - (0.01f), GameObject.Find("noteDispenser").transform.position.z + (UnityEngine.Random.Range(0.0f, 0.9f) - 0.5f)),
-                        Quaternion.Euler(new Vector3(0, 0, 0))) as GameObject;
-                    note.transform.localScale = new Vector3(UnityEngine.Random.Range(1, 10), 1, 1);
-
-                    if (UnityEngine.Random.Range(0, 2) == 0)
-                    {
-                        note.GetComponent<defualtLongNote>().isLast = true;
-                    }
-                    else
-                    {
-                        note.GetComponent<defualtLongNote>().isLast = false;
-                    }
+                        new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y - (0.01f), GameObject.Find("noteDispenser").transform.position.z + position),
+                        Quaternion.Euler(new Vector3(0, noteArray.data[i].rotation, 0))) as GameObject;
+                    note.transform.localScale = new Vector3(noteArray.data[i].size, 1, 1.2f);
+                    note.GetComponent<defualtLongNote>().isLast = noteArray.data[i].isLast;
 
                 }
                 else if (randNote == 5)
                 {
+                    float position = noteArray.data[i].position - 0.5f;
+                    position = GameObject.Find("noteDispenser").transform.localScale.z * -position;
                     note = Instantiate(GameObject.Find(noteName),
-                        new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y - (0.01f), GameObject.Find("noteDispenser").transform.position.z + (UnityEngine.Random.Range(0.0f, 0.9f))),
-                        Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+                        new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y - (0.01f), GameObject.Find("noteDispenser").transform.position.z + position),
+                        Quaternion.Euler(new Vector3(0, noteArray.data[i].isLeft == true ? 90: -90, 0))) as GameObject;
+                    note.GetComponent<shuffleLongNote>().isLeft = noteArray.data[i].isLeft;
                 }
                 else
                 {
+                    float position = noteArray.data[i].position - 0.5f;
+                    position = GameObject.Find("noteDispenser").transform.localScale.z * -position;
+
                     note = Instantiate(GameObject.Find(noteName),
-                    new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y + (0.05f), GameObject.Find("noteDispenser").transform.position.z + (UnityEngine.Random.Range(0.0f, 0.9f) - 0.5f)),
+                    new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y + (0.05f), GameObject.Find("noteDispenser").transform.position.z + position),
                        Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+
                 }
                 noteArray.data.RemoveAt(i);
                 break;

@@ -26,7 +26,7 @@ public class moveJumpNote : MonoBehaviour
 
     void OnTriggerStay(Collider col)
     {
-        if (!GameObject.Find("rightFootObject").GetComponent<rightFootObjectScript>().stap && !GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stap)
+        if (col.tag == "NoteColider" && !GameObject.Find("rightFootObject").GetComponent<rightFootObjectScript>().stap && !GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stap)
         {
             GameObject.Find("applause").GetComponent<AudioSource>().Play();
             Destroy(gameObject);

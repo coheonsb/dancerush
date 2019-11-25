@@ -10,13 +10,13 @@ public class shuffleLongNoteCollider : MonoBehaviour
     bool isRightStap = false;
     bool isSuccess = false;
     bool soundPlayed = false;
-    bool isLeft = true;
+    public bool isLeft;
     float firstLeftZ;
     float firsRightZ;
     void Start()
     {
-        Debug.Log("shuffleLongNoteCollider");
         isLeft = transform.parent.gameObject.GetComponent<shuffleLongNote>().isLeft;
+        Debug.Log(isLeft);
     }
 
     void OnTriggerEnter(Collider col)

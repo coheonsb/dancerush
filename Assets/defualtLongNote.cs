@@ -17,6 +17,6 @@ public class defualtLongNote : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.left * speed * Time.deltaTime);
+        transform.Translate(new Vector3(-1 * speed * Time.deltaTime, 0, 0), Space.World);
     }
 }

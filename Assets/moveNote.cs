@@ -61,7 +61,6 @@ public class moveNote : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(Time.timeScale);
         transform.Translate(Vector3.back * speed * Time.deltaTime);
     }
 
