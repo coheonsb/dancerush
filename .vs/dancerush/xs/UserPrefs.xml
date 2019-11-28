@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{01051B71-CAC6-A17E-3213-57775793D31C}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/SineVFX/PostProcessing/Editor/PropertyDrawers/MinDrawer.cs">
+    <Files>
+      <File FileName="Assets/SineVFX/PostProcessing/Editor/PropertyDrawers/MinDrawer.cs" Line="6" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="dancerush" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="SineVFX" expanded="True">
+                <Node name="PostProcessing" expanded="True">
+                  <Node name="Editor" expanded="True">
+                    <Node name="PropertyDrawers" expanded="True">
+                      <Node name="MinDrawer.cs" selected="True" />
+                    </Node>
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e08aa7fe-03f2-4742-a641-30fb73860495" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
