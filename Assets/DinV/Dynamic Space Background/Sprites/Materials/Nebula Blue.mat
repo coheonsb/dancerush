@@ -51,9 +51,9 @@ Material:
     - _DstBlend: 0
     - _EmissionEnabled: 1
     - _FlipbookMode: 0
-    - _Glossiness: 0.5
+    - _Glossiness: 0.439
     - _LightingEnabled: 1
-    - _Metallic: 0
+    - _Metallic: 0.01
     - _Mode: 0
     - _SoftParticlesEnabled: 0
     - _SoftParticlesFarFadeDistance: 1
