@@ -9,6 +9,8 @@ public class indexScript : MonoBehaviour
     // Start is called before the first frame update
 
     long startTime;
+    long musicStartTime;
+    bool isMusicPlay = false;
 
     [System.Serializable]
     class NoteData
@@ -27,6 +29,7 @@ public class indexScript : MonoBehaviour
     class NoteArray
     {
         public List<NoteData> data;
+        public long musicStartTime;
     };
     NoteArray noteArray;
 
@@ -37,8 +40,9 @@ public class indexScript : MonoBehaviour
         Debug.Log("시작!");
         startTime = DateNow();
         StartCoroutine(Example());
-        textData = (Resources.Load("test") as TextAsset);
+        textData = (Resources.Load("crazyShuffle") as TextAsset);
         noteArray = JsonUtility.FromJson<NoteArray>(textData.ToString());
+        musicStartTime = noteArray.musicStartTime;
     }
 
 
@@ -131,6 +135,12 @@ public class indexScript : MonoBehaviour
     {
         if (Time.timeScale != 1) {
           Time.timeScale = 1;
+        }
+        if (!isMusicPlay) {
+            if (DateNow() > musicStartTime + startTime) {
+                isMusicPlay = true;
+                GameObject.Find("CrazyShuffle").GetComponent<AudioSource>().Play();
+            }
         }
 
         makeNote();
