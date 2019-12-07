@@ -29,11 +29,10 @@ public class moveNote : MonoBehaviour
         {
             if (DateNow() - GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stapTime < 200) {
                 GameObject.Find("applause").GetComponent<AudioSource>().Play();
+                GameObject perfect = Instantiate(GameObject.Find("perfect"), new Vector3(1.572f, -0.166f, -0.055f), Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+                perfect.GetComponent<perfectUp>().awake = true;
                 Destroy(gameObject);
             }
-
-            //Instantiate(GameObject.Find("leftparticle"),
-               // new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, gameObject.transform.position.z), Quaternion.identity);
 
 
         }
@@ -42,6 +41,8 @@ public class moveNote : MonoBehaviour
             if (DateNow() - GameObject.Find("rightFootObject").GetComponent<rightFootObjectScript>().stapTime < 200)
             {
                 GameObject.Find("applause").GetComponent<AudioSource>().Play();
+                GameObject perfect = Instantiate(GameObject.Find("perfect"), new Vector3(1.572f, -0.166f, -0.055f), Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+                perfect.GetComponent<perfectUp>().awake = true;
                 Destroy(gameObject);
             }
            // Instantiate(GameObject.Find("rightparticle"),
@@ -55,6 +56,8 @@ public class moveNote : MonoBehaviour
     {
         if (col.tag == "NoteColider")
         {
+            GameObject perfect = Instantiate(GameObject.Find("fail"), new Vector3(1.572f, -0.166f, -0.055f), Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+            perfect.GetComponent<failUp>().awake = true;
             Destroy(gameObject);
         }
     }

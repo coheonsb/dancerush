@@ -10,7 +10,7 @@ public class defualtLongNoteCollider : MonoBehaviour
     bool isRightStap = false;
     bool isSuccess = false;
     bool soundPlayed = false;
-    bool isLast;
+    bool isLast = true;
     void Start()
     {
         Debug.Log("defualtLongNoteCollider");
@@ -47,14 +47,14 @@ public class defualtLongNoteCollider : MonoBehaviour
         {
             if (!soundPlayed && isLast)
             {
-                GameObject.Find("applause").GetComponent<AudioSource>().Play();
+                //GameObject.Find("applause").GetComponent<AudioSource>().Play();
                 soundPlayed = true;
             }
         }
         else if (isLeftStap && !GameObject.Find("leftFootObject").GetComponent<leftFootObjectScript>().stap)
         {
             if (!soundPlayed && isLast) {
-                GameObject.Find("applause").GetComponent<AudioSource>().Play();
+                //GameObject.Find("applause").GetComponent<AudioSource>().Play();
                 soundPlayed = true;
             }
 
@@ -65,16 +65,21 @@ public class defualtLongNoteCollider : MonoBehaviour
     {
         if (col.tag == "NoteColider")
         {
-            //if (isLast)
-            //{
-            //    GameObject.Find("applause").GetComponent<AudioSource>().Play();
-            //}
-            if (isSuccess && !soundPlayed && isLast)
+            if (isSuccess && !soundPlayed)
             {
-                GameObject.Find("applause").GetComponent<AudioSource>().Play();
+                GameObject perfect = Instantiate(GameObject.Find("perfect"), new Vector3(1.572f, -0.166f, -0.055f), Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+                perfect.GetComponent<perfectUp>().awake = true;
+                GameObject.Find("longNoteSound").GetComponent<AudioSource>().Play();
+                Destroy(transform.parent.gameObject);
+                Destroy(gameObject);
+            } else
+            {
+                GameObject perfect = Instantiate(GameObject.Find("fail"), new Vector3(1.572f, -0.166f, -0.055f), Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+                perfect.GetComponent<failUp>().awake = true;
+                Destroy(transform.parent.gameObject);
+                Destroy(gameObject);
             }
-            Destroy(transform.parent.gameObject);
-            Destroy(gameObject);
+
         }
 
     }

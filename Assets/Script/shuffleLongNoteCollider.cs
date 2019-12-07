@@ -40,13 +40,13 @@ public class shuffleLongNoteCollider : MonoBehaviour
             else if (isLeftStap) {
                 if (isLeft)
                 {
-                    if (firstLeftZ - 0.02 > GameObject.Find("leftFootObject").transform.position.z)
+                    if (firstLeftZ - 0.015 > GameObject.Find("leftFootObject").transform.position.z)
                     {
                         isSuccess = true;
                     }
                 }
                 else {
-                    if (firstLeftZ + 0.02 < GameObject.Find("leftFootObject").transform.position.z)
+                    if (firstLeftZ + 0.015 < GameObject.Find("leftFootObject").transform.position.z)
                     {
                         isSuccess = true;
                     }
@@ -65,14 +65,14 @@ public class shuffleLongNoteCollider : MonoBehaviour
             {
                 if (isLeft)
                 {
-                    if (firsRightZ - 0.02 > GameObject.Find("rightFootObject").transform.position.z)
+                    if (firsRightZ - 0.015 > GameObject.Find("rightFootObject").transform.position.z)
                     {
                         isSuccess = true;
                     }
                 }
                 else
                 {
-                    if (firsRightZ + 0.02 < GameObject.Find("rightFootObject").transform.position.z)
+                    if (firsRightZ + 0.015 < GameObject.Find("rightFootObject").transform.position.z)
                     {
                         isSuccess = true;
                     }
@@ -89,10 +89,19 @@ public class shuffleLongNoteCollider : MonoBehaviour
         {
             if (isSuccess && !soundPlayed)
             {
-                GameObject.Find("applause").GetComponent<AudioSource>().Play();
+                GameObject.Find("longNoteSound").GetComponent<AudioSource>().Play();
+                GameObject perfect = Instantiate(GameObject.Find("perfect"), new Vector3(1.572f, -0.166f, -0.055f), Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+                perfect.GetComponent<perfectUp>().awake = true;
+                Destroy(transform.parent.gameObject);
+                Destroy(gameObject);
             }
-            Destroy(transform.parent.gameObject);
-            Destroy(gameObject);
+            else {
+                GameObject perfect = Instantiate(GameObject.Find("fail"), new Vector3(1.572f, -0.166f, -0.055f), Quaternion.Euler(new Vector3(0, 90, 0))) as GameObject;
+                perfect.GetComponent<failUp>().awake = true;
+                Destroy(transform.parent.gameObject);
+                Destroy(gameObject);
+            }
+
         }
 
     }

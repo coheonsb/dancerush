@@ -9,6 +9,8 @@ public class indexScript : MonoBehaviour
     // Start is called before the first frame update
 
     long startTime;
+    long musicStartTime;
+    bool isMusicPlay = false;
 
     [System.Serializable]
     class NoteData
@@ -27,6 +29,7 @@ public class indexScript : MonoBehaviour
     class NoteArray
     {
         public List<NoteData> data;
+        public long musicStartTime;
     };
     NoteArray noteArray;
 
@@ -37,8 +40,9 @@ public class indexScript : MonoBehaviour
         Debug.Log("시작!");
         startTime = DateNow();
         StartCoroutine(Example());
-        textData = (Resources.Load("test") as TextAsset);
+        textData = (Resources.Load("crazyShuffle") as TextAsset);
         noteArray = JsonUtility.FromJson<NoteArray>(textData.ToString());
+        musicStartTime = noteArray.musicStartTime;
     }
 
 
@@ -106,7 +110,7 @@ public class indexScript : MonoBehaviour
                     position = GameObject.Find("noteDispenser").transform.localScale.z * -position;
                     note = Instantiate(GameObject.Find(noteName),
                         new Vector3(GameObject.Find("noteDispenser").transform.position.x, GameObject.Find("noteDispenser").transform.position.y - (0.01f), GameObject.Find("noteDispenser").transform.position.z + position),
-                        Quaternion.Euler(new Vector3(0, noteArray.data[i].isLeft == true ? 90: -90, 0))) as GameObject;
+                        Quaternion.Euler(new Vector3(0, noteArray.data[i].isLeft == true ? 90 : -90, 0))) as GameObject;
                     note.GetComponent<shuffleLongNote>().isLeft = noteArray.data[i].isLeft;
                 }
                 else
@@ -129,8 +133,17 @@ public class indexScript : MonoBehaviour
 
     void Update()
     {
-        if (Time.timeScale != 1) {
-          Time.timeScale = 1;
+        if (Time.timeScale != 1)
+        {
+            Time.timeScale = 1;
+        }
+        if (!isMusicPlay)
+        {
+            if (DateNow() > musicStartTime + startTime)
+            {
+                isMusicPlay = true;
+                GameObject.Find("CrazyShuffle").GetComponent<AudioSource>().Play();
+            }
         }
 
         makeNote();
